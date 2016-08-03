@@ -12,23 +12,42 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+h1 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+     text-align: center;
+}
+.ac{box-shadow: 10px 10px;
+width: 380px;
+    height: 100px;
+    padding: 15px;
+    background-color: pink;
+     color: white;
+     font-size: 16px;
+   
+    }
+</style>
 </head>
-<body>
+<body >
 
 
-  <h2>welcome admin</h2>
+  <h1>welcome admin</h1>
   
+  <table>
+ <tr><form action="product">
+ 
+    <button type="submit" class="ac">Add product</button>
+  </form></tr>
+   <tr><form action="category">
+<button type="submit" class="ac">Add Category</button>
+</form></tr>
   
-  <form action="product">
-    <button type="submit" class="btn btn-primary">Add product</button>
-  </form><br>
-   <form action="category">
-<button type="submit" class="btn btn-primary">Add Category</button>
-</form><br>
-  
-   <form action="supplier">
-<button type="submit" class="btn btn-primary">Add supplier</button>
-</form><br>
+   <tr><form action="supplier">
+<button type="submit" class="ac">Add supplier</button>
+
+</form></tr>
+</table>
  
  
   
