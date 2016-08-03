@@ -25,7 +25,7 @@
  <listener>
    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
  </listener>
- <welcome-file-list><welcome-file>/WEB-INF/views/admin.jsp</welcome-file>
+ <welcome-file-list><welcome-file>/WEB-INF/views/register.jsp</welcome-file>
 
 </welcome-file-list>
  
