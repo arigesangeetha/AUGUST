@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse" style=color:red >
 				<ul class="nav navbar-nav navbar-right">
 				
-					<li><a> <span
+					<li><a href="login"> <span
 							class="glyphicon glyphicon-user"></span>sigh</a></li>
 				</ul>
 			</div>
