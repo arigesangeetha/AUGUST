@@ -25,36 +25,38 @@ input[type=text] {
     background-color: lightblue;
 }
 div {
-    background-color: green;
+    background-color:  #8000ff;
     color: white;
     padding: 30px;
     text-align: center;
+    font-size:30px
 }
 div:hover {
-    background-color: blue;
+    background-color:   #408080;
 }
 #rcorners2 {
     border-radius: 25px;
-    border: 2px solid #73AD21;
+    border: 2px solid #8000ff;
     padding: 20px;
     width: auto;
     height: auto;
+    align:middle;
     
 }
-
+#p{ background-color=" #8000ff"}
 </style>
 
 </head>
 
-<body>
-<div class="mouseover">login here</div>
+<body >
+<div class="mouseover">LOGIN</div>
 
-<form action="login"  method="POST">
+<form action="submit">
 <p id="rcorners2">
  <label for="fname">USERNAME</label>
-  <input type="text" id="uname" name="fname" >
+  <input type="text" id="uname" name="fname" required >
   <label for="fname">PASSWORD</label>
-  <input type="text" id="pwd" name="lname" >
+  <input type="text" id="pwd" name="lname" required >
   <input type="submit" value="SUBMIT" >
   
 </p>

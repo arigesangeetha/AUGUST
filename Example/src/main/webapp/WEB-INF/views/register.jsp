@@ -54,7 +54,7 @@ div {
 </style>
 </head>
 <body>
-	<form method="post" action="registration.jsp">
+	<form method="post" action="signup1">
 	<p id="rcorners6">
 		<label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname">

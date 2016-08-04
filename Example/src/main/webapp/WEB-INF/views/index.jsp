@@ -28,29 +28,15 @@
       <a class="navbar-brand" href="#">SHOPPINGCART</a>
     </div>
     <ul class="nav navbar-nav" >
-      <li class="active"><a href="http://localhost:8080/sample/home.html">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">mobiles <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">applie</a></li>
-          <li><a href="#">sumsung</a></li>
-          <li><a href="#">motorola</a></li>
-          <li><a href="#">idea</a></li>
-        </ul>
-     </li>
-      <li class="dropdown"><a class="dropdown-toggle" 
-      data-toggle="dropdown" href="#">Mobile Accesaries <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">power banks</a></li>
-          <li><a href="#">cases covers</a></li>
-          <li><a href="#">headphones</a></li>
-        </ul>
-        </li>
+      <li class="active"><a href="">Home</a></li>
+      
     </ul>
     <div class="collapse navbar-collapse" style=color:red >
 				<ul class="nav navbar-nav navbar-right">
 				
 					<li><a href="login"> <span
-							class="glyphicon glyphicon-user"></span>sigh</a></li>
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					
 				</ul>
 			</div>
 	

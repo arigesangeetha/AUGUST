@@ -7,20 +7,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value="/login")
-	public ModelAndView openpage()
+	@RequestMapping(value="submit")
+	public String login()
 	{
-		ModelAndView mv =new ModelAndView("login");
-	
-		return mv ;
+		return "admin";
 	}
-	@RequestMapping(value="/enterdetails",method=RequestMethod.POST)
-	public String insertdetails()		
+	@RequestMapping(value="signup1")
+	public String submit()
 	{
+		return "login";
+	}
 
-		
-		return "admin ";
 	
-	}
 
 }

@@ -22,7 +22,7 @@ public class ProductController {
 		model.addAttribute("product", new Product());
 		model.addAttribute("productList", productDAO.list());
 		model.addAttribute("ProductPageClicked", "true");
-		return "admin";
+		return "addproduct";
 	}
 
 	@RequestMapping(value = { "addproduct", "editproduct/addproduct" }, method = RequestMethod.POST)
@@ -37,7 +37,7 @@ public class ProductController {
 		model.addAttribute("product", this.productDAO.get(id));
 		model.addAttribute("productList", productDAO.list());
 		model.addAttribute("ProductPageClicked", "true");
-		return "admin";
+		return "addproduct";
 	}
 
 	@RequestMapping(value = { "removeproduct/{id}", "editproduct/removeproduct/{id}" })

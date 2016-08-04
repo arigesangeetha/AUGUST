@@ -17,14 +17,16 @@ h1 {
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
      text-align: center;
+     font-size:70px;
 }
-.ac{box-shadow: 10px 10px;
-width: 380px;
+.a{
+box-shadow: 15px 15px #00ffff;
+width: 320px;
     height: 100px;
-    padding: 15px;
-    background-color: pink;
+    padding: 20px;
+    background-color: #0000ff;
      color: white;
-     font-size: 16px;
+     font-size: 26px;
    
     }
 </style>
@@ -37,14 +39,14 @@ width: 380px;
   <table>
  <tr><form action="product">
  
-    <button type="submit" class="ac">Add product</button>
+    <button type="submit" class="a" >Add product</button>
   </form></tr>
    <tr><form action="category">
-<button type="submit" class="ac">Add Category</button>
+<button type="submit" class="a">Add Category</button>
 </form></tr>
   
    <tr><form action="supplier">
-<button type="submit" class="ac">Add supplier</button>
+<button type="submit" class="a">Add supplier</button>
 
 </form></tr>
 </table>

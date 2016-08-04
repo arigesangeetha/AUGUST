@@ -7,20 +7,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Insert title here</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script>
+var app = angular.module('Example', []);
+ 
+function MyController($scope, $http) {
+
+	 $scope.sortType = 'name'; // set the default sort type
+	  $scope.sortReverse = false;  // set the default sort order
+	  $scope.searchPName = '';
+	  
+        $scope.getDataFromServer = function() {
+                $http({
+                        method : 'GET',
+                        url : 'GsonCon'
+                }).success(function(data, status, headers, config) {
+                        $scope.person = data;// alert(data); 
+                }).error(function(data, status, headers, config) {
+                        // called asynchronously if an error occurs
+                        // or server returns response with an error status.
+                });
+        };
+};
+
+
+
+</script>
+
+<style type="text/css">
+h1 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+     text-align: center;
+     font-size:40px;
+}
+</style>
 </head>
 <body>
 <c:url var="addAction" value="addproduct"></c:url>
-<h1>product page</h1>
+<div class="container" ng-app="myApp" ng-controller="MyController" ng-init="getDataFromServer()">
+<form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Search Product Name" ng-model="searchName">      
+       </div>      
+    </div>
+  </form>
+<h1>PRODUCT MODULE</h1>
 <form:form action="${addAction}" commandName="product">
-		<table>
+		<table class="table table-bordered table-striped">
+		<thead>
 			<tr>
 				<td><form:label path="id">
 						<spring:message text="ID" />
 					</form:label></td>
 				<c:choose>
 					<c:when test="${!empty product.id}">
-						<td><form:input path="id" disabled="true" readonly="true" />
+						<td><form:input path="id" disabled="true" readonly="true"  />
 						</td>
 					</c:when>
 
@@ -61,8 +110,9 @@
 	<br>
 	
 	<c:if test="${!empty productList}">
-	<h3>product List</h3>
-		<table class="tg">
+	<h1>ALL PRODUCTS</h1>
+		<table class="table table-bordered table-striped">
+		<thead>
 			<tr>
 				<th >Product ID</th>
 				<th >Product Name</th>
@@ -88,7 +138,10 @@
 					</form></td>
 				</tr>
 			</c:forEach>
+			</thead>
 		</table>
 	</c:if>
+	</div>
+	<div align="center"><a href=index.jsp>Home Page</a></div>
 </body>
 </html>
