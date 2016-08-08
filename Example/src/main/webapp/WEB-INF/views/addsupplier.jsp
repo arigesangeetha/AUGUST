@@ -7,13 +7,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Supplier Page</title>
+<title>SUPPLIER MODULE</title>
+<style type="text/css">
+h1 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+     text-align: center;
+     font-size:40px;
+}
+</style>
 </head>
-<body>
+<body><h1>SUPPLIER MODULE</h1>
 <c:url var="addAction" value="addsupplier"></c:url>
 
 	<form:form action="${addAction}" commandName="supplier">
-		<table>
+		<table class="table table-bordered table-striped">
+		<thead>
 			<tr>
 				<td><form:label path="id">
 						<spring:message text="ID" />
@@ -54,8 +63,9 @@
 	<br>
 	
 	<c:if test="${!empty supplierList}">
-	<h3>Supplier List</h3>
-		<table class="tg">
+	<h1>Supplier List</h1>
+		<table class="table table-bordered table-striped">
+		<thead>
 			<tr>
 				<th >Supplier ID</th>
 				<th >Supplier Name</th>
@@ -77,7 +87,10 @@
 					</form></td>
 				</tr>
 			</c:forEach>
+			</thead>
 		</table>
 	</c:if>
+	
+	
 </body>
 </html>

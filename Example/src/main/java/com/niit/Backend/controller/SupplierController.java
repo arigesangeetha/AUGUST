@@ -21,7 +21,7 @@ public class SupplierController {
 		model.addAttribute("supplier", new Supplier());
 		model.addAttribute("supplierList", supplierDAO.list());
 		model.addAttribute("SupplierPageClicked", "true");
-		return "admin";
+		return "addsupplier";
 	}
 
 	@RequestMapping(value = { "addsupplier", "editsupplier/addsupplier" }, method = RequestMethod.POST)
@@ -36,7 +36,7 @@ public class SupplierController {
 		model.addAttribute("supplier", this.supplierDAO.get(id));
 		model.addAttribute("supplierList", supplierDAO.list());
 		model.addAttribute("SupplierPageClicked", "true");
-		return "admin";
+		return "addsupplier";
 	}
 
 	@RequestMapping(value = { "removesupplier/{id}", "editsupplier/removesupplier/{id}" })

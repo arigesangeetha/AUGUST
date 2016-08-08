@@ -13,17 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    background-color: pink;
-    color: black;
-}input[type=text]:focus {
-    background-color: lightblue;
-}
+
 div {
     background-color:  #8000ff;
     color: white;
@@ -53,10 +43,10 @@ div:hover {
 
 <form action="submit">
 <p id="rcorners2">
- <label for="fname">USERNAME</label>
-  <input type="text" id="uname" name="fname" required >
-  <label for="fname">PASSWORD</label>
-  <input type="text" id="pwd" name="lname" required >
+ USERNAME:
+  <input type="text" id="uname" name="fname" required ><br><br>
+ PASSWORD:
+  <input type="password" id="pwd" name="lname" ><br><br>
   <input type="submit" value="SUBMIT" >
   
 </p>

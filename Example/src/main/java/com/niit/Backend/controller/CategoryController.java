@@ -20,7 +20,7 @@ public class CategoryController {
 		model.addAttribute("category", new Category());
 		model.addAttribute("categoryList", categoryDAO.list());
 		model.addAttribute("CategoryPageClicked", "true");
-		return "admin";
+		return "addcategory";
 	}
 
 	@RequestMapping(value = { "addcategory", "editcategory/addcategory" }, method = RequestMethod.POST)
@@ -35,7 +35,7 @@ public class CategoryController {
 		model.addAttribute("category", this.categoryDAO.get(id));
 		model.addAttribute("categoryList", categoryDAO.list());
 		model.addAttribute("CategoryPageClicked", "true");
-		return "admin";
+		return "addcategory";
 	}
 
 	@RequestMapping(value = { "removecategory/{id}", "editcategory/removecategory/{id}" })

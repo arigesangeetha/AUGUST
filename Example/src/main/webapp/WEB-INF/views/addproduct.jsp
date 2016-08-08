@@ -9,35 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Insert title here</title>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
-<script	src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-<script>
-var app = angular.module('Example', []);
- 
-function MyController($scope, $http) {
 
-	 $scope.sortType = 'name'; // set the default sort type
-	  $scope.sortReverse = false;  // set the default sort order
-	  $scope.searchPName = '';
-	  
-        $scope.getDataFromServer = function() {
-                $http({
-                        method : 'GET',
-                        url : 'GsonCon'
-                }).success(function(data, status, headers, config) {
-                        $scope.person = data;// alert(data); 
-                }).error(function(data, status, headers, config) {
-                        // called asynchronously if an error occurs
-                        // or server returns response with an error status.
-                });
-        };
-};
-
-
-
-</script>
 
 <style type="text/css">
 h1 {
@@ -51,14 +23,7 @@ h1 {
 <body>
 <c:url var="addAction" value="addproduct"></c:url>
 <div class="container" ng-app="myApp" ng-controller="MyController" ng-init="getDataFromServer()">
-<form>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control" placeholder="Search Product Name" ng-model="searchName">      
-       </div>      
-    </div>
-  </form>
+
 <h1>PRODUCT MODULE</h1>
 <form:form action="${addAction}" commandName="product">
 		<table class="table table-bordered table-striped">
@@ -142,6 +107,6 @@ h1 {
 		</table>
 	</c:if>
 	</div>
-	<div align="center"><a href=index.jsp>Home Page</a></div>
+	
 </body>
 </html>
