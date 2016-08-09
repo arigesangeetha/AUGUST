@@ -3,8 +3,10 @@ package com.niit.Backend.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
@@ -15,6 +17,10 @@ public class Supplier {
 	private String id;
 	private String name;
 	private String address;
+	@Transient
+	private MultipartFile image;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -32,6 +38,12 @@ public class Supplier {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 	
 

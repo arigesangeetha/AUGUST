@@ -8,7 +8,7 @@
 	<p>Following files are uploaded successfully.</p>
 	<ol>
 		<c:forEach items="${files}" var="file">
-			<img src="${ pagecontext.request.contextpath}/images/${file} "width="120" height="100">
+			<img src="${ pagecontext.request.contextpath}/images/${file} "width="100" height="100">
 		<li>${file}</li>
 		
 		

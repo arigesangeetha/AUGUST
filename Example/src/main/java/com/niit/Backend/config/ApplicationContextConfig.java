@@ -14,17 +14,17 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.Backend.model.Cart;
 import com.niit.Backend.model.Category;
 import com.niit.Backend.model.Product;
 import com.niit.Backend.model.Supplier;
-import com.niit.Backend.model.User;
+import com.niit.Backend.model.UserDetails;
 import com.niit.Backend.dao.CategoryDAOImpl;
 import com.niit.Backend.dao.ProductDAO;
 import com.niit.Backend.dao.ProductDAOImpl;
 import com.niit.Backend.dao.SupplierDAO;
 import com.niit.Backend.dao.SupplierDAOImpl;
-import com.niit.Backend.dao.UserDAO;
-import com.niit.Backend.dao.UserDAOImpl;
+import com.niit.Backend.dao.CartDAOImpl;
 import com.niit.Backend.dao.CategoryDAO;
 
 @Configuration
@@ -59,7 +59,8 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClasses(Category.class);
 		sessionBuilder.addAnnotatedClasses(Supplier.class);
 		sessionBuilder.addAnnotatedClasses(Product.class);
-		sessionBuilder.addAnnotatedClasses(User.class);
+		sessionBuilder.addAnnotatedClasses(UserDetails.class);
+		sessionBuilder.addAnnotatedClasses(Cart.class);
 		System.out.println("Session");
 		return sessionBuilder.buildSessionFactory();
 		
@@ -88,10 +89,16 @@ public class ApplicationContextConfig {
 	public ProductDAO geProductDao(SessionFactory sessionFactory) {
 		return new ProductDAOImpl(sessionFactory);
 	}
+	
 	@Autowired
-	@Bean(name = "userDAO")
-	public UserDAO geUserDao(SessionFactory sessionFactory) {
-		return new UserDAOImpl(sessionFactory);
+	@Bean(name = "userDetailsDAO")
+	public ProductDAO getUserDetailsDAO(SessionFactory sessionFactory) {
+			return new ProductDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name = "cartDAO")
+	public CartDAOImpl getCartDAO(SessionFactory sessionFactory) {
+			return new CartDAOImpl(sessionFactory);
 	}
 }
 
