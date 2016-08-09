@@ -37,7 +37,7 @@ width: 320px;
   <h1>welcome admin</h1>
   
   <table>
- <tr><form action="product">
+ <tr> <form action="product">
  
     <button type="submit" class="a" >Add product</button>
   </form></tr>

@@ -112,7 +112,7 @@ h1 {
 		</table>
 	</c:if>
 	<img alt="Image"
-		src="<c:url value="/resources/Images/supplier/WS.jpg"> </c:url>">
+		src="<c:url value="/resources/Images/supplier.jpg"> </c:url>">
 
 	<img
 		src="<%=request.getContextPath() +"/resources/Images/supplier/${supplier.id}.jpg"%>"
