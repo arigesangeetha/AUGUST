@@ -10,9 +10,10 @@ public interface CartDAO {
 
 	public List<Cart> list();
 
-	public Cart get(int UserId);
+	public List<Cart> get(int userId);
 
 	public void saveOrUpdate(Cart cart);
 
 	public void delete(int userId);
+	 
 }

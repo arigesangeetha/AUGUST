@@ -92,6 +92,59 @@
     <div class="col-sm-3" style="background-color:#666666;"><a href="productsInfo?name=10003"><img src=<c:url value="/resources/Images/four.jpg" /> alt="four" width="200" height="200"></a></div>
   </div>
 <div style="width:100%; height:40;"></div>
+<!-- ################################################################################################## -->
+<div class="w3-top">
+		<nav>
+			<ul class="w3-navbar w3-dark-grey w3-large  w3-card-4 ">
+				<li><a href="" class="w3-hover-none"><i class="fa fa-home"></i>
+						E K A R T </a></li>
+				<li style="float: right"><a href="#" class="w3-hover-none"><i
+						class="fa fa-user-plus"></i></a></li>
+				<li style="float: right"><a href="#" class="w3-hover-none"><i
+						class="fa fa-sign-in"></i></a></li>
+			</ul>
+
+<c:if test="${!empty categoryList}">
+				<div>
+					<ul
+						class="w3-navbar w3-light-grey w3-round w3-small menu w3-card-4 "
+						Style="width: 70%; margin-left: 15%; margin-top: -10px">
+						<c:forEach items="${categoryList}" var="category">
+							<li><a href="${category.name}" class="w3-hover-none">${category.name}</a></li>
+						</c:forEach>
+						<li style="float: right"><a href="${userId}/viewcart" class="w3-hover-none"><i
+								class="fa fa-shopping-cart"></i> View Cart</a></li>
+						<li style="float: right"><a href="#" class="w3-hover-none"><i
+								class="fa fa-user"></i> Hi, ${name}</a></li>
+					</ul>
+				</div>
+			</c:if>
+			</nav>
+			</div>
+<!-- ################################################################################################## -->
+
+
+	<div class="w3-container w3-dark-grey w3-card-4 w3-round"
+		style="width: 100%; height: 200px; margin-top: 5px"></div>
+
+
+			
+<!-- ################################################################################################## -->
+			
+	<c:if test="${!empty productList}">
+		<div>
+			<ul>
+				<c:forEach items="${productList}" var="product">
+					<li><a href="#${product.name}" class="w3-hover-none"><img alt="${product.id}" src="<c:url value="/resources/Images/product/${product.id}.jpg"></c:url>"></a></li>
+					<li><a href="${userId}/addtoCart/${product.id}"
+						>Add to Cart</a></li>
+				</c:forEach>
+			</ul>
+		</div>
+	</c:if>
+
+	<!-- ################################################################################################## -->
+
 
 </nav>
 </body>

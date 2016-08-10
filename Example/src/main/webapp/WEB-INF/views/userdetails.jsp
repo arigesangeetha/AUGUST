@@ -7,24 +7,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>SUPPLIER MODULE</title>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-
-<style type="text/css">
-h1 {
-	color: white;
-	text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-	text-align: center;
-	font-size: 40px;
-}
-</style>
+<title>REGISTRATION MODULE</title>
 </head>
 <body>
-	<h1>SUPPLIER MODULE</h1>
-	<c:url var="addAction" value="addsupplier"></c:url>
+<c:url var="addAction" value="user"></c:url>
 
-	<form:form action="${addAction}" commandName="supplier"
+	<form:form action="${addAction}" commandName="user"
 		enctype="multipart/form-data" method="post">
 		<table class="table table-bordered table-striped">
 			<thead>
@@ -33,7 +21,7 @@ h1 {
 							<spring:message text="ID" />
 						</form:label></td>
 					<c:choose>
-						<c:when test="${!empty supplier.id}">
+						<c:when test="${!empty user.id}">
 							<td><form:input path="id" disabled="true" readonly="true" />
 							</td>
 						</c:when>
@@ -51,41 +39,62 @@ h1 {
 					<td><form:input path="name" required="true" /></td>
 				</tr>
 				<tr>
-					<td><form:label path="address">
-							<spring:message text="Address" />
+					<td><form:label path="username">
+							<spring:message text="username" />
 						</form:label></td>
-					<td><form:input path="address" required="true" /></td>
+					<td><form:input path="username" required="true" /></td>
 				</tr>
 
 				<tr>
-					<td><form:label path="image">
-							<spring:message text="Image" />
+					<td><form:label path="password">
+							<spring:message text="password" />
 						</form:label></td>
-					<td><form:input type="file" path="image" required="true" /></td>
+					<td><form:input  path="password" required="true" /></td>
 				</tr>
+				<tr>
+					<td><form:label path="mobile">
+							<spring:message text="mobile" />
+						</form:label></td>
+					<td><form:input  path="mobile" required="true" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="email">
+							<spring:message text="email" />
+						</form:label></td>
+					<td><form:input  path="email" required="true" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="admin">
+							<spring:message text="admin" />
+						</form:label></td>
+					<td><form:input  path="admin" required="true" /></td>
+				</tr>
+				
 
 
 				<tr>
-					<td colspan="2"><c:if test="${!empty supplier.name}">
+					<td colspan="2"><c:if test="${!empty user.name}">
 							<input type="submit"
-								value="<spring:message text="Edit Supplier"/>" />
-						</c:if> <c:if test="${empty supplier.name}">
+								value="<spring:message text="Edit"/>" />
+						</c:if> <c:if test="${empty user.name}">
 							<input type="submit"
-								value="<spring:message text="Add Supplier"/>" />
+								value="<spring:message text="Add "/>" />
 						</c:if></td>
 				</tr>
 		</table>
 	</form:form>
 	<br>
-
 	<c:if test="${!empty supplierList}">
 		<h1>Supplier List</h1>
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th>Supplier ID</th>
-					<th>Supplier Name</th>
-					<th>Supplier Address</th>
+					<th>USER ID</th>
+					<th> Name</th>
+					<th>UserName</th>
+					<th>password</th>
+					<th>mobile</th>
+					<th>email</th>
 
 
 
@@ -99,11 +108,11 @@ h1 {
 						<td>${supplier.address}</td>
 
 						<td>
-							<form action="editsupplier/${supplier.id}" method="post">
+							<form action="editsupplier/${user.id}" method="post">
 								<input type="submit" value="Edit">
 							</form>
 						</td>
-						<td><form action="removesupplier/${supplier.id}">
+						<td><form action="removesupplier/${user.id}">
 								<input type="submit" value="Delete">
 							</form></td>
 					</tr>
@@ -111,13 +120,5 @@ h1 {
 			</thead>
 		</table>
 	</c:if>
-	<img alt="Image"
-		src="<c:url value="/resources/Images/supplier/,1234.jpg" > </c:url>">
-<div style="width:100%; height:40;"></div>
-	<img
-		src="<%=request.getContextPath() +"/resources/Images/supplier/${supplier.id}.jpg" %>"
-		alt="${supplier.id}" />
-	
-
 </body>
 </html>

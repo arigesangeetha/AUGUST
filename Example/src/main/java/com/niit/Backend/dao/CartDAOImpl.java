@@ -3,6 +3,7 @@ package com.niit.Backend.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ import com.niit.Backend.model.Cart;
 
 
 
+@SuppressWarnings("deprecation")
 @Repository("cartDAO")
 public class CartDAOImpl implements CartDAO {
 	
@@ -25,7 +27,8 @@ public class CartDAOImpl implements CartDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation" })
+	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Cart> list() {
 	List<Cart> listCategory = (List<Cart>)sessionFactory.getCurrentSession()
@@ -35,19 +38,27 @@ public class CartDAOImpl implements CartDAO {
 			return listCategory;
 		}
 
-	public Cart get(int UserId) {
-		
-		return null;
+
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Cart> get(int userId) {
+		String hql = "from"+" Cart"+" where userId="+userId+"and status='C'";
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<Cart> list = (List<Cart>)query.list();
+		return list;
 	}
 
 	@Transactional
 	public void saveOrUpdate(Cart cart) {
 		sessionFactory.getCurrentSession().saveOrUpdate(cart);
+		
 	}
 
 	public void delete(int userId) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }

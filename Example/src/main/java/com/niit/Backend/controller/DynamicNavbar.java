@@ -25,7 +25,7 @@ public class DynamicNavbar {
 	public ModelAndView dynamicNav(HttpSession session)
 	{
 		session.setAttribute("userId","1");
-		ModelAndView mv=new ModelAndView("Welcome");
+		ModelAndView mv=new ModelAndView("index");
 		mv.addObject("categoryList",categoryDAO.list());
 		mv.addObject("productList",productDAO.list());
 		return mv;

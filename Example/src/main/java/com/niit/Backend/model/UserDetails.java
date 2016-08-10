@@ -23,6 +23,7 @@ public class UserDetails {
 	private String mobile;
 	private String email;
 	
+	@Column(columnDefinition="int default 0")
 	private int admin;
 	
 	public int getUserId() {
@@ -67,6 +68,5 @@ public class UserDetails {
 	public void setAdmin(int admin) {
 		this.admin = admin;
 	}
-	
 
 }
