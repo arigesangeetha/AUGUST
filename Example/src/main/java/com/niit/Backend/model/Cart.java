@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -14,19 +13,30 @@ public class Cart {
 
 	@Id
 	@GeneratedValue
-	private int id;
-	private int userid;
+	private int id; 
+	private int userId;
+	
 	private String productname;
 	private String price;
 	private int quantity;
 	private String status;
-	
 	public int getId() {
 		return id;
 	}
-	public int getUserid() {
-		return userid;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
 	public String getProductname() {
 		return productname;
 	}
@@ -37,12 +47,8 @@ public class Cart {
 	public String getStatus() {
 		return status;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+	
+	
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}

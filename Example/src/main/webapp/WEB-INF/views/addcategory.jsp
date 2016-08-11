@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CATEGORY MODULE</title>
+
 <style type="text/css">
 h1 {
     color: white;
@@ -15,13 +16,30 @@ h1 {
      text-align: center;
      font-size:40px;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 </style>
+
 </head>
 <body><h1>CATEGORY MODULE</h1>
 <c:url var="addAction" value="addcategory"></c:url>
 
 	<form:form action="${addAction}" commandName="category">
-		<table class="table table-bordered table-striped">
+		<table border="1" cellpadding="10" cellspacing="10" align="center">
 		<thead>			<tr>
 				<td><form:label path="id">
 						<spring:message text="ID" />
@@ -62,7 +80,7 @@ h1 {
 	<br>
 	
 	<c:if test="${!empty categoryList}">
-	<h1>Supplier List</h1>
+	<h1>CategoryList</h1>
 		<table class="table table-bordered table-striped">
 		<thead>
 			<tr>

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.niit.Backend.dao.CartDAO;
 import com.niit.Backend.dao.CategoryDAO;
 import com.niit.Backend.dao.ProductDAO;
@@ -41,20 +40,20 @@ public class CartController {
 		Cart item=new Cart();
 		Product product=productDAO.get(Productid);
 		item.setProductname(product.getName());
-		item.setUserid(userId);
+		item.setUserId(userId);
 		item.setPrice(product.getPrice());
 		item.setStatus("C");
 		item.setQuantity(1);
 		cartDAO.saveOrUpdate(item);
 		return "redirect:/index";
 	}
-	
-	@RequestMapping("{userId}/Viewcart")
+	@RequestMapping("{userId}/viewcart")
 	public String viewCart(@PathVariable("userId") int userId,Model model)
 	{
 		model.addAttribute("CartList",cartDAO.get(userId));
 		/*model.addAttribute("CartPrice",cartDAO.CartPrice(userId));*/
 		return "ViewCart";
 	}
+	
 }
 

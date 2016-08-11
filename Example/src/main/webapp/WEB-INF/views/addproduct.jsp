@@ -18,6 +18,22 @@ h1 {
 	text-align: center;
 	font-size: 40px;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 </style>
 </head>
 <body>
@@ -28,8 +44,8 @@ h1 {
 		<h1>PRODUCT MODULE</h1>
 		<form:form action="${addAction}" commandName="product" enctype="multipart/form-data" method="post">
 
-			<table class="table table-bordered table-striped">
-				<thead>
+			<table border="1" cellpadding="10" cellspacing="10" align="center">
+			<thead>
 					<tr>
 						<td><form:label path="id">
 								<spring:message text="Id" />
