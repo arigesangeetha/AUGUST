@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,6 +63,39 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		}
 		
 		return null;
+	}
+	@SuppressWarnings("rawtypes")
+	@Transactional
+	public boolean isValidUser(String userName, String password) {
+		Criteria c=sessionFactory.getCurrentSession().createCriteria(UserDetails.class);
+		c.add(Restrictions.eq("userName",userName));
+		c.add(Restrictions.eq("password",password));
+		
+		List list = c.list();
+		if(list==null || list.isEmpty())
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	@Transactional
+	public UserDetails get(String userName) {
+		Criteria c=sessionFactory.getCurrentSession().createCriteria(UserDetails.class);
+		c.add(Restrictions.eq("userName",userName));
+		
+		@SuppressWarnings("unchecked")
+		List<UserDetails> listUser = (List<UserDetails>) c.list();
+		
+		if (listUser != null && !listUser.isEmpty()) {
+			return listUser.get(0);
+		}
+		else {
+			return null;
+		}
 	}
 
 }

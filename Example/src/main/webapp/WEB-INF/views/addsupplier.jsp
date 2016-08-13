@@ -60,79 +60,77 @@ th {
 						</c:otherwise>
 					</c:choose>
 				<tr>
-					<form:input path="id" hidden="true" />
-					<td><form:label path="name">
-							<spring:message text="Name" />
-						</form:label></td>
-					<td><form:input path="name" required="true" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="address">
-							<spring:message text="Address" />
-						</form:label></td>
-					<td><form:input path="address" required="true" /></td>
-				</tr>
+							<td><form:label path="id">
+									<spring:message text="ID" />
+								</form:label></td>
+							<c:choose>
+								<c:when test="${!empty supplier.id}">
+									<td><form:input path="id" readonly="true" /></td>
+								</c:when>
 
-				<tr>
-					<td><form:label path="image">
-							<spring:message text="Image" />
-						</form:label></td>
-					<td><form:input type="file" path="image" required="true" /></td>
-				</tr>
-
-
-				<tr>
-					<td colspan="2"><c:if test="${!empty supplier.name}">
-							<input type="submit"
-								value="<spring:message text="Edit Supplier"/>" />
-						</c:if> <c:if test="${empty supplier.name}">
-							<input type="submit"
-								value="<spring:message text="Add Supplier"/>" />
-						</c:if></td>
-				</tr>
-		</table>
-	</form:form>
+								<c:otherwise>
+									<td><form:input path="id" pattern=".{2,10}"
+											required="true" title="id should contains 2 to 10 characters" /></td>
+								</c:otherwise>
+							</c:choose>
+						<tr>
+							<td><form:label path="name">
+									<spring:message text="Name" />
+								</form:label></td>
+							<td><form:input path="name" required="true" /></td>
+						</tr>
+						<tr>
+							<td><form:label path="address">
+									<spring:message text="Address" />
+								</form:label></td>
+							<td><form:input path="address" required="true" /></td>
+						</tr>
+						<tr>
+							<td><form:label path="image">
+									<spring:message text="Image" />
+								</form:label></td>
+							<td><form:input type="file" path="image" required="true" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><c:if test="${!empty supplier.name}">
+									<input type="submit" class="w3-btn w3-blue"
+										value="<spring:message text="Edit Supplier"/>" />
+								</c:if> <c:if test="${empty supplier.name}">
+									<input type="submit" class="w3-btn w3-blue"
+										value="<spring:message text="Add Supplier"/>" />
+								</c:if></td>
+						</tr>
+					</table>
+				</form:form>
 	<br>
 
 	<c:if test="${!empty supplierList}">
-		<h1>Supplier List</h1>
-		<table class="table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Supplier ID</th>
-					<th>Supplier Name</th>
-					<th>Supplier Address</th>
+					<table class="w3-table w3-bordered w3-striped w3-card-4">
+						<tr class="w3-cyan">
+							<th>Supplier ID</th>
+							<th>Supplier Name</th>
+							<th>Supplier Address</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+						<c:forEach items="${supplierList}" var="supplier">
+							<tr>
+								<td>${supplier.id}</td>
+								<td>${supplier.name}</td>
+								<td>${supplier.address}</td>
 
-
-
-					<th>Edit</th>
-					<th>Delete</th>
-				</tr>
-				<c:forEach items="${supplierList}" var="supplier">
-					<tr>
-						<td>${supplier.id}</td>
-						<td>${supplier.name}</td>
-						<td>${supplier.address}</td>
-
-						<td>
-							<form action="editsupplier/${supplier.id}" method="post">
-								<input type="submit" value="Edit">
-							</form>
-						</td>
-						<td><form action="removesupplier/${supplier.id}">
-								<input type="submit" value="Delete">
-							</form></td>
-					</tr>
-				</c:forEach>
-			</thead>
-		</table>
-	</c:if>
-	<img alt="Image"
-		src="<c:url value="/resources/Images/supplier/,1234.jpg" > </c:url>">
-<div style="width:100%; height:40;"></div>
-	<img
-		src="<%=request.getContextPath() +"/resources/Images/supplier/${supplier.id}.jpg" %>"
-		alt="${supplier.id}" />
+								<td>
+									<form action="editsupplier/${supplier.id}" method="post">
+										<input type="submit" class="w3-btn w3-blue" value="Edit">
+									</form>
+								</td>
+								<td><form action="removesupplier/${supplier.id}">
+										<input type="submit" class="w3-btn w3-blue" value="Delete">
+									</form></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:if>
 	
 
 </body>

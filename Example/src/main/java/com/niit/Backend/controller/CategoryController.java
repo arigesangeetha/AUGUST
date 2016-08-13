@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.niit.Backend.dao.CategoryDAO;
 import com.niit.Backend.model.Category;
+
 @Controller
 public class CategoryController {
 	@Autowired
@@ -20,7 +21,7 @@ public class CategoryController {
 		model.addAttribute("category", new Category());
 		model.addAttribute("categoryList", categoryDAO.list());
 		model.addAttribute("CategoryPageClicked", "true");
-		return "addcategory";
+		return "index";
 	}
 
 	@RequestMapping(value = { "addcategory", "editcategory/addcategory" }, method = RequestMethod.POST)
@@ -35,7 +36,7 @@ public class CategoryController {
 		model.addAttribute("category", this.categoryDAO.get(id));
 		model.addAttribute("categoryList", categoryDAO.list());
 		model.addAttribute("CategoryPageClicked", "true");
-		return "addcategory";
+		return "index";
 	}
 
 	@RequestMapping(value = { "removecategory/{id}", "editcategory/removecategory/{id}" })

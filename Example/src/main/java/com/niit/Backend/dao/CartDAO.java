@@ -15,5 +15,7 @@ public interface CartDAO {
 	public void saveOrUpdate(Cart cart);
 
 	public void delete(int userId);
+	
+	public long CartPrice(int userId);
 	 
 }

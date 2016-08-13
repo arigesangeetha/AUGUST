@@ -13,64 +13,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Registration</title>
-<style>
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
 
-input[type=submit] {
-    width: 100%;
-    background-color:#66666;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-#rcorners6 {
-    border-radius: 15px 50px;
-    background: pink;
-    padding: 20px;
-    width: auto;
-    height: auto;
-}
-</style>
 </head>
 <body>
-	<form method="post" action="signup1">
-	<p id="rcorners6">
-		<label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname">
-
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname">
-
-    <label for="country">State</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
-  
-    <input type="submit" value="Submit">
-    </p>
-	</form>
+	<pre>
+<c:url var="addAction" value="adduser"></c:url>
+<form:form action="${addAction}" commandName="userDetails" method="post">
+<form:label path="name"><spring:message text="Name" /></form:label><form:input path="name" required="true" />
+<form:label path="userName"><spring:message text="UserName" /></form:label><form:input path="userName" required="true" />
+<form:label path="password"><spring:message text="Password" /></form:label><form:input path="password" required="true" />
+<form:label path="mobile"><spring:message text="Mobile Number" /></form:label><form:input path="mobile" required="true" />
+<form:label path="email"><spring:message text="Email" /></form:label><form:input path="email" required="true" />
+<input type="submit" value="signup"/>
+</form:form>
+</pre>
 </body>
 </html>

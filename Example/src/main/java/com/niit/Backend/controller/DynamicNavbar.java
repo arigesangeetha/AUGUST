@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,19 +18,22 @@ public class DynamicNavbar {
 	
 	@Autowired
 	CategoryDAO categoryDAO;
-	
+
 	@Autowired
 	ProductDAO productDAO;
-	
+
 	@RequestMapping("/")
-	public ModelAndView dynamicNav(HttpSession session)
-	{
-		session.setAttribute("userId","1");
-		session.setAttribute("name","sangeetha" );
-		ModelAndView mv=new ModelAndView("index");
-		mv.addObject("categoryList",categoryDAO.list());
-		mv.addObject("productList",productDAO.list());
+	public ModelAndView dynamicNav(HttpSession session) {
+		ModelAndView mv = new ModelAndView("index");
+		session.setAttribute("categoryList", categoryDAO.list());
+		session.setAttribute("productList", productDAO.list());
 		return mv;
 	}
 
+	@RequestMapping("/index")
+	public String UserHome(Model mv) {
+		mv.addAttribute("categoryList", categoryDAO.list());
+		mv.addAttribute("productList", productDAO.list());
+		return "Welcome";
+	}
 }

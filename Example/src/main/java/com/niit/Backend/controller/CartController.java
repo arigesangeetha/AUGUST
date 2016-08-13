@@ -27,13 +27,7 @@ public class CartController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	@RequestMapping("/index")
-	public String UserHome(Model mv)
-	{
-		mv.addAttribute("categoryList",categoryDAO.list());
-		mv.addAttribute("productList",productDAO.list());
-		return "index";
-	}
+	
 	@RequestMapping("{userId}/addtoCart/{id}")
 	public String addToCart(@PathVariable("id") String Productid,@PathVariable("userId") int userId)throws Exception 
 	{
@@ -43,7 +37,6 @@ public class CartController {
 		item.setUserId(userId);
 		item.setPrice(product.getPrice());
 		item.setStatus("C");
-		item.setQuantity(1);
 		cartDAO.saveOrUpdate(item);
 		return "redirect:/index";
 	}
@@ -51,7 +44,7 @@ public class CartController {
 	public String viewCart(@PathVariable("userId") int userId,Model model)
 	{
 		model.addAttribute("CartList",cartDAO.get(userId));
-		/*model.addAttribute("CartPrice",cartDAO.CartPrice(userId));*/
+		model.addAttribute("CartPrice",cartDAO.CartPrice(userId));
 		return "ViewCart";
 	}
 	

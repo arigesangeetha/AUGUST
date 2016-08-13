@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,6 +60,17 @@ public class CartDAOImpl implements CartDAO {
 
 	public void delete(int userId) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Transactional
+	public long CartPrice(int userId) {
+		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
+		c.add(Restrictions.eq("userid", userId));
+		c.add(Restrictions.eq("status","C"));
+		c.setProjection(Projections.sum("price"));
+		Long l= (Long) c.uniqueResult();
+		return l;
 		
 	}
 	

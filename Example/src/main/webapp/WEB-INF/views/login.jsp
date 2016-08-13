@@ -20,7 +20,9 @@
 <body >
 
 
-<form action="submit">
+<c:url var="addAction" value="loginvalidation"></c:url>
+<form:form action="${addAction}" commandName="userDetails" method="post">
+
 <div class="panel panel-primary">
 <div class="panel-heading center">LOGIN</div>
 <div class="panel-body">
@@ -42,7 +44,7 @@
   </div>
   </div>
 
-</form>
+</form:form>
 
 </body>
 </html>
