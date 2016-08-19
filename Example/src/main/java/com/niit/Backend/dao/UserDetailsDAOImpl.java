@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import com.niit.Backend.model.UserDetails;
 
 
@@ -51,7 +52,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 	@Transactional
 	public UserDetails get(int id) {
-		String hql = "from"+" UserDetails"+" where userId="+"id";
+		String hql = "from"+" UserDetails"+" where userId="+id;
 		@SuppressWarnings("rawtypes")
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
@@ -61,9 +62,10 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		if (listUser != null && !listUser.isEmpty()) {
 			return listUser.get(0);
 		}
-		
 		return null;
 	}
+
+	
 	@SuppressWarnings("rawtypes")
 	@Transactional
 	public boolean isValidUser(String userName, String password) {
@@ -81,7 +83,6 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 			return true;
 		}
 	}
-
 	@Transactional
 	public UserDetails get(String userName) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(UserDetails.class);
@@ -96,6 +97,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		else {
 			return null;
 		}
+
 	}
 
 }

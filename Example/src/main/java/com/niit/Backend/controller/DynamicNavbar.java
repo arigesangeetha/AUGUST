@@ -18,10 +18,10 @@ public class DynamicNavbar {
 	
 	@Autowired
 	CategoryDAO categoryDAO;
-
+	
 	@Autowired
 	ProductDAO productDAO;
-
+	
 	@RequestMapping("/")
 	public ModelAndView dynamicNav(HttpSession session) {
 		ModelAndView mv = new ModelAndView("index");
@@ -34,6 +34,7 @@ public class DynamicNavbar {
 	public String UserHome(Model mv) {
 		mv.addAttribute("categoryList", categoryDAO.list());
 		mv.addAttribute("productList", productDAO.list());
-		return "Welcome";
+		return "index";
 	}
+
 }

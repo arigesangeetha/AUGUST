@@ -35,45 +35,8 @@ width: 320px;
 
 
   <h1>welcome admin</h1>
- <!--  #################################################################################################################################
-  --> 
   
-  <nav>
-		<ul class="w3-navbar w3-card-4 w3-light-grey w3-left-align w3-top">
-			<li class="w3-hide-medium w3-hide-large w3-black w3-opennav w3-right">
-				<a href="javascript:void(0);" onclick="myFunction()"><i
-					class="fa fa-caret-square-o-down" aria-hidden="true"></i></a></li>
-			<li><a class="w3-cyan " href="#"><i class="fa fa-home"></i>
-					E K A R T </a></li>
-			<li class="w3-hide-small"><a href="product"
-				style="display: inline-block"><i class="fa fa-list"
-					aria-hidden="true"></i> Products</a></li>
-			<li class="w3-hide-small"><a href="category"
-				style="display: inline-block"><i class="fa fa-list"
-					aria-hidden="true"></i> Category</a></li>
-			<li class="w3-hide-small"><a href="supplier"
-				style="display: inline-block"><i class="fa fa-list"
-					aria-hidden="true"></i> Supplier</a></li>
-			<li class="w3-hide-small" style="float: right"><a href="#"><i
-					class="fa fa-sign-out"></i> Sign Out</a></li>	
-		</ul>
-		<div id="demo" class="w3-hide w3-card-8 w3-hide-large w3-hide-medium">
-			<ul class="w3-navbar w3-left-align w3-card-8 w3-light-grey">
-				<li><a href="product" style="display: inline-block"><i
-						class="fa fa-list" aria-hidden="true"></i> Products</a></li>
-				<li><a href="category" style="display: inline-block"><i
-						class="fa fa-list" aria-hidden="true"></i> Category</a></li>
-				<li><a href="supplier" style="display: inline-block"><i
-						class="fa fa-list" aria-hidden="true"></i> Supplier</a></li>
-				<li style="float: right"><a href="#"><i
-						class="fa fa-sign-out"></i> Sign Out</a></li>
-			</ul>
-		</div>
-	</nav>
-<!-- ################################################################################################################################
-   -->
-   
-   <table>
+  <table>
  <tr> <form action="product">
  
     <button type="submit" class="a" >Add product</button>
@@ -88,8 +51,6 @@ width: 320px;
 </form></tr>
 </table>
  
- <!-- ################################################################################################################################
-   -->
  
   
 

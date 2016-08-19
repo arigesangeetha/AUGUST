@@ -18,8 +18,10 @@
 <body>
 
 				<c:if test="${!empty CartList}">
-					<table class="w3-table w3-bordered w3-striped w3-card-4">
-						<tr class="w3-cyan">
+					 <table class="table table-bordered table-striped">
+    
+                        <thead>
+                        <tr>
 							<th>Product Name</th>
 							<th>Product Quantity</th>
 							<th>Product Price</th>
@@ -32,11 +34,12 @@
 							</tr>
 							
 						</c:forEach>
+						</thead>
 					</table>
 				</c:if>
-				Cart Price=${CartPrice}
+				 Cart Price=${CartPrice}
 				
-				<a href="/Welcome">Return To Home</a>
+				<a href="/index">Return To Home</a> 
 				
 </body>
 </html>

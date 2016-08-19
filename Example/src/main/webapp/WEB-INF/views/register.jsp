@@ -16,7 +16,6 @@
 
 </head>
 <body>
-	<pre>
 <c:url var="addAction" value="adduser"></c:url>
 <form:form action="${addAction}" commandName="userDetails" method="post">
 <form:label path="name"><spring:message text="Name" /></form:label><form:input path="name" required="true" />
@@ -26,6 +25,5 @@
 <form:label path="email"><spring:message text="Email" /></form:label><form:input path="email" required="true" />
 <input type="submit" value="signup"/>
 </form:form>
-</pre>
 </body>
 </html>

@@ -62,7 +62,7 @@ public class CartDAOImpl implements CartDAO {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Transactional
 	public long CartPrice(int userId) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Cart.class);
@@ -73,5 +73,4 @@ public class CartDAOImpl implements CartDAO {
 		return l;
 		
 	}
-	
 }

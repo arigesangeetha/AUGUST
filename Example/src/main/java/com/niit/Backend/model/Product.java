@@ -15,9 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 	@Id
 	private String id;
-    private String name;
-    private String description;
-private long price;
+	private String name;
+
+	private String description;
+
+	private long price;
 	
 	private String supplierid;
 	
@@ -81,5 +83,6 @@ private long price;
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
+
 
 	}
