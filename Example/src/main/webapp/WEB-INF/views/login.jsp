@@ -20,12 +20,12 @@
 
 </head>
 
-<body>
+<body style="padding-top:75px">
+	<div class="container">
+		
 
-
-	<form action="perform_login" method="post">
-		<div class="panel panel-primary">
-			<div class="panel-heading center">LOGIN</div>
+<form action="perform_login" method="post">
+	<h1>LOGIN</h1>
 
 
 			<div class="panel-body">
@@ -51,8 +51,7 @@
 				<button type="submit" value="submit" class="btn btn-default">Submit</button>
 			</div>
 		</div>
-
-	</form>
-
+		
+		
 </body>
 </html>

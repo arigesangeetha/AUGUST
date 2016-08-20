@@ -7,7 +7,7 @@
 <!--*****************************************************************************************************************************************-->
 
 
-<html ng-app="Example">
+<html>
 <head>
 <title>Bootstrap Demo</title>
 
@@ -20,60 +20,56 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
-<script type="text/javascript">
-
-
-</script>
 <!-- 
   ######################################################## STYLE ########################################################
  -->
 <style>
+
+.carousel {
+    margin-bottom: 0;
+	padding: 20px 40px 20px 40px;
+	style=background-color:
+#808080
+}
+.carousel-indicators li {
+	background: #c0c0c0;
+}
+.carousel-indicators .active {
+background: #333333;
+}
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
-	height: 400;
+	height:400 ;
 }
+.bg-danger{background:  #c0c0c0;}
+.container-fluid{background: #000000;}
 </style>
-<!-- ##########################################################################################################################
- -->
-
 </head>
-<body>
-	<!-- 
-######################################################### HEADER ##########################################################
- -->
-	<nav class="navbar navbar" style="background-color: #666666">
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">SHOPPINGCART</a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href=""><span
-							class="glyphicon glyphicon-home"></span>Home</a></li>
+<body >
+<div class="bg-danger" style=background-color:#666666>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+      <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+        </a></div>
+		<ul class="nav navbar-nav">
+      <li class="active"><a href="#">	
+				<span class="glyphicon glyphicon-home"></span>Home</a></li></ul>
+							
 
-<!-- *********************************************************** SEARCH *****************************************************				
- -->  
- 
-<div class="slinput" ng-init="">
-    <i class="fa fa-search left-icon"></i> 
-    <input placeholder="Search here" ng-model="searchInputVal"/> 
-    <i ng-class="{'fa' : true, 'fa-close' : true, 'right-icon' : true, active : (searchInputVal.length > 0)}" ng-click="searchInputVal = ''"></i>
-</div>
-  
- <!--  ****************************************************** END SEARCH ***********************************************************
-  -->
- 
-					<c:choose>
+<!-- ##############################################################################################################################				
+ -->				
+	 <ul class="nav navbar-nav navbar-right">
+	<c:choose>
 					<c:when test="${LoggedIn}">
 
 						<li style="float: right"><a href="perform_logout"
 							class="w3-hover-none"><i class="glyphicon glyphicon-log-out"></i></a></li>
 						<c:choose>	
 						<c:when test="${!Administrator}">	
-						<li style="float: right"><a href="viewcart/${userId}"
+						<li style="float: right"><a href="viewcart"
 							class="w3-hover-none"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
 						</c:when>
 						</c:choose>
@@ -97,24 +93,29 @@
 				</div>
 					</c:otherwise>
 				</c:choose>
-				</ul>
-<!-- ##############################################################################################################################				
- -->				
-				
+			</ul> 
+ </div>
+
+ 
+ </nav>
+ <!--  ****************************************************** END SEARCH ***********************************************************
+  -->
+ <ul >
+							
 		<c:choose>	
 		<c:when test="${!Administrator}">	
 			<!-- Category List -->
 			<c:if test="${!empty categoryList}">
-				<div>
 				
-						<ul class="nav navbar-nav">
+				
+						<div class="panel-heading">
 					
 						
 						<c:forEach items="${categoryList}" var="category">
-							<li><a href="${category.name}" class="w3-hover-none"><i class="fa fa-list-alt" aria-hidden="true"></i> ${category.name}</a></li>
+							<a  href="name" class="w3-hover-none"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> ${category.name}</a>
 						</c:forEach>
 					
-					</ul>
+					
 				</div>
 			</c:if>	
 		</c:when>	
@@ -131,8 +132,23 @@
 			</ul>
 		</c:when>
 	</c:choose>		
-	</nav>
-	</div>
+	
+</ul>
+
+<!-- ##############################################################################################################################				
+ -->	
+ <c:choose>
+		<c:when test="${IfViewCartClicked}">
+			<c:import url="/WEB-INF/views/cart.jsp">
+			</c:import>
+		</c:when>
+
+		<c:when test="${IfPaymentClicked}">
+			<c:import url="/WEB-INF/views/Payment.jsp">
+			</c:import>
+		</c:when>
+	</c:choose>			
+	
 	
 	<!-- Category List End -->
 	<c:choose>
@@ -174,29 +190,39 @@
 		
 		<!-- #########################################################################################################################
  -->
-
-		<div class="container">
-			<br>
+<c:choose>
+		<c:when test="${!Administrator}">
+			<c:if test="${empty HideOthers}">
+				<div>
+			
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
 					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+					<li data-target="#myCarousel" data-slide-to="4"></li>
 				</ol>
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/one.jpg" /> alt="one">
+						<img src=<c:url value="/resources/Images/co/k.jpg" /> alt="one">
 					</div>
 
 					<div class="item" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/two.jpg" /> alt="two">
+						<img src=<c:url value="/resources/Images/co/kk.jpg" /> alt="two">
 					</div>
 
 					<div class="item" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/three.jpg" /> alt="four">
+						<img src=<c:url value="/resources/Images/co/kkk.jpg" /> alt="four">
+					</div>
+					<div class="item" style="width: 100%; height: 400">
+						<img src=<c:url value="/resources/Images/co/kkkk.jpg" /> alt="four">
+					</div>
+					<div class="item" style="width: 100%; height: 400">
+						<img src=<c:url value="/resources/Images/co/k.jpg" /> alt="four">
 					</div>
 
 				</div>
@@ -215,123 +241,66 @@
 		</div>
 
 		<div>
-			<br> <br>
-		</div>
-		<!-- ################################################################################################## -->
-
-
-		<div class="row">
-			<div class="col-sm-3" style="background-color: #666666;">
-				<a href="${product.id}"><img
-					src=<c:url value="/resources/Images/one.jpg" /> alt="one"
-					width="200" height="200"></a>
+			<br> 
 			</div>
-			<div class="col-sm-3" style="background-color: #666666;">
-				<a href="${product.id}"><img
-					src=<c:url value="/resources/Images/two.jpg" /> alt="two"
-					width="200" height="200"></a>
-			</div>
-			<div class="col-sm-3" style="background-color: #666666;">
-				<a href="${product.id}"><img
-					src=<c:url value="/resources/Images/three.jpg" /> alt="three"
-					width="200" height="200"></a>
-			</div>
-			<div class="col-sm-3" style="background-color: #666666;">
-				<a href="${product.id}"><img
-					src=<c:url value="/resources/Images/four.jpg" /> alt="four"
-					width="200" height="200"></a>
-			</div>
-		</div>
-		<div style="width: 100%; height: 40;"></div>
-
-
-
+			</c:if>
+		</c:when>
+	</c:choose>
+		
+		<!--  ****************************************************** END SEARCH ***********************************************************
+  -->
+  
+  
+    
 		<!-- ################################################### Product List ############################################### -->
+		<c:if test="${empty HideOthers}">
 		<c:choose>
 			<c:when test="${!Administrator}">
 				<c:if test="${!empty productList}">
 					<div>
-						<ul>
+						<!-- <ul> -->
+						<div class="row w3-card-8 w3-margin" style="margin-bottom: 0px">
+							<br>
 							<c:forEach items="${productList}" var="product">
-								<li><a href=" ${product.name}" class="w3-hover-none"><img
-										alt="${product.id}"
-										src="<c:url value="/resources/images/product/${product.id}.jpg"></c:url>"></a></li>
-								<c:choose>
-									<c:when test="${LoggedIn}">
-										<li><a href="addtoCart/${userId}/${product.id}"
-											class="w3-hover-none">Add to Cart</a></li>
-									</c:when>
-								</c:choose>
-							</c:forEach>
-						</ul>
+								<div class="col-xs-2 ">
+									<div class="thumbnail">
+										<img height="150px" width="150px" alt="${product.id}"
+											src="<c:url value="/resources/images/product/${product.id}.jpg"></c:url>">
+										<div class="caption">
+											<p>
+												${product.name}
+												<c:choose>
+													<c:when test="${LoggedIn}">
+														<form action="addtoCart/${userId}/${product.id}">
+															<input type="number" value="1" name="quantity"
+																class="btn btn-xs btn-primary   col-xs-6 ">
+															<input type="submit" value="Add" class="btn btn-xs col-xs-6 btn-primary">
+														</form>
+														
+													</c:when>
+												</c:choose>
+											</p>
+
+										</div>
+									</div>
+								</div>
+								</c:forEach>
+						</div>
+						
 					</div>
 				</c:if>
 			</c:when>
 		</c:choose>
+	</c:if>
+
+
 
 		<!--############################################### Product List End ##############################################-->
 
-		<!-- #################################################  FOOTER ###################################################-->
 
-
-
-		<footer class="footer-distributed w3-card-4 w3-black"
-			style="opacity: 0.9">
-			<div class="footer-left">
-				<p>Payment Options</p>
-				<a href="#"><i class="glyphicon glyphicon-paypal" aria-hidden="true"></i> </a> . <a
-					href="#"><i class="glyphicon glyphicon-cc-amex" aria-hidden="true"></i> </a> . <a
-					href="#"><i class="glyphicon glyphicon-cc-mastercard" aria-hidden="true"></i>
-				</a> . <a href="#"><i class="glyphicon glyphicon-cc-visa" aria-hidden="true"></i>
-				</a> . <a href="#"><i class="glyphicon glyphicon-credit-card" aria-hidden="true"></i>
-				</a> . <a href="#"><i class="fa fa-google-wallet" aria-hidden="true"></i>
-				</a> . <a href="#"><i class="fa fa-cc-stripe" aria-hidden="true"></i>
-				</a>
-				<p></p>
-				<p></p>
-				<p>
-					E K A R T <i class="fa fa-copyright" aria-hidden="true"> 2016</i>
-				</p>
-				<p></p>
-				<div class="footer-icons">
-					<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-						class="fa fa-twitter"></i></a> <a href="#"><i
-						class="fa fa-linkedin"></i></a> <a href="#"><i
-						class="fa fa-github"></i></a>
-				</div>
-			</div>
-			<div class="footer-center">
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p>
-						<span>21 Revolution Street</span> Paris, France
-					</p>
-				</div>
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>+1 555 123456</p>
-				</div>
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p>
-						<a href="mailto:support@company.com">support@ekart.com</a>
-					</p>
-				</div>
-			</div>
-			<div class="footer-right">
-				<p class="footer-company-about">
-					<span>About the company</span> <a
-						href="http://www.secura.e-sim.org"
-						title="Summus, website template creation">Summus</a> is a web
-					design and development studio. We build responsive HTML5 and CSS3
-					templates, integrating best web design practices and up-to-date web
-					technologies to create great user experiences. We love what we do
-					and we hope you do too!
-				</p>
-			</div>
-		</footer>
-
-		<!-- ################################################### FOOTER END################################################# -->
+		
+	
+	</div>
 	
 </body>
 </html>

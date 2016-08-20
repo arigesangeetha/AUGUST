@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.niit.Backend.dao.CartDAO;
 import com.niit.Backend.dao.CategoryDAO;
 import com.niit.Backend.dao.ProductDAO;
 import com.niit.Backend.dao.UserDetailsDAO;
 import com.niit.Backend.model.UserDetails;
+
 
 @Controller
 public class LoginController {
@@ -27,12 +29,15 @@ public class LoginController {
 	ProductDAO productDAO;
 	@Autowired
 	UserDetailsDAO userDetailsDAO;
+	@Autowired
+	CartDAO cartDAO;
 	
 	@RequestMapping(value = "login")
 	public String DisplayLogin(Model mv) {
 		mv.addAttribute("userDetails", new UserDetails());
 		mv.addAttribute("IfLoginClicked", "true");
-		return "login";
+		mv.addAttribute("HideOthers","true");
+		return "index";
 	}
 
 	@RequestMapping(value = "Register")
@@ -41,7 +46,8 @@ public class LoginController {
 		mv.addAttribute("categoryList", categoryDAO.list());
 		mv.addAttribute("productList", productDAO.list());
 		mv.addAttribute("IfRegisterClicked", "true");
-		return "register";
+		mv.addAttribute("HideOthers","true");
+		return "index";
 	}
 
 	@RequestMapping(value = "adduser", method = RequestMethod.POST)

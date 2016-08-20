@@ -14,14 +14,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.Backend.dao.SupplierDAO;
 import com.niit.Backend.model.Supplier;
+
 @Controller
 public class SupplierController {
 
 	
 	@Autowired
 	private SupplierDAO supplierDAO;
-    
-	@RequestMapping(value = { "supplier", "editsupplier/supplier" , "editcategory/supplier"})
+	
+
+	@RequestMapping(value = {"supplier"})
 	public String SupplierPage(Model model) {
 		model.addAttribute("supplier", new Supplier());
 		model.addAttribute("supplierList", supplierDAO.list());
@@ -29,16 +31,14 @@ public class SupplierController {
 		return "addsupplier";
 	}
 
-	@RequestMapping(value = { "addsupplier", "editsupplier/addsupplier" }, method = RequestMethod.POST)
+	@RequestMapping(value = {"addsupplier", "editsupplier/addsupplier" }, method = RequestMethod.POST)
 	public String addSupplier(@ModelAttribute("supplier") Supplier supplier , HttpServletRequest request) {
-
 		String path=request.getSession().getServletContext().getRealPath("/")+"\\resources\\Images\\supplier\\";
-
 		supplierDAO.saveorUpdate(supplier);
 		MultipartFile file=supplier.getImage();
 		MultiPartController.upload(path, file, supplier.getId()+".jpg");
-		
 		return "redirect:/supplier";
+		
 	}
 
 	@RequestMapping("editsupplier/{id}")
@@ -52,13 +52,13 @@ public class SupplierController {
 
 	@RequestMapping(value = { "removesupplier/{id}", "editsupplier/removesupplier/{id}" })
 	public String removeSupplier(@PathVariable("id") String id, Model model, HttpServletRequest request) throws Exception {
-String path=request.getSession().getServletContext().getRealPath("/")+"\\resources\\Images\\supplier\\";
+		String path=request.getSession().getServletContext().getRealPath("/")+"\\resources\\Images\\supplier\\";
 		MultiPartController.deleteimage(path, id+".jpg");
-		
 		supplierDAO.delete(id);
 		model.addAttribute("message", "Successfully Deleted");
 		return "redirect:/supplier";
 	}
+
 
 
 

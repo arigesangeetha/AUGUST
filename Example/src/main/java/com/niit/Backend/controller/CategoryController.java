@@ -13,10 +13,12 @@ import com.niit.Backend.model.Category;
 
 @Controller
 public class CategoryController {
+	
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 
-	@RequestMapping(value = { "category", "editcategory/category" , "editsupplier/category"})
+	@RequestMapping(value = { "category"})
 	public String CategoryPage(Model model) {
 		model.addAttribute("category", new Category());
 		model.addAttribute("categoryList", categoryDAO.list());
@@ -45,7 +47,11 @@ public class CategoryController {
 		model.addAttribute("message", "Successfully Deleted");
 		return "redirect:/category";
 	}
-
-
+	@RequestMapping(value="name")
+	public String login()
+	{
+		return "category";
+	}
+	
 
 }

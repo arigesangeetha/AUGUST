@@ -37,11 +37,15 @@ th {
 </style>
 </head>
 <body>
+
 	<c:url var="addAction" value="addproduct"></c:url>
 	<div class="container" ng-app="myApp" ng-controller="MyController"
 		ng-init="getDataFromServer()">
 
 		<h1>PRODUCT MODULE</h1>
+		
+		<li style="float: right"><a href="perform_logout"
+							class="active"><i class="glyphicon glyphicon-log-out"> logout</i></a></li>
 		<form:form action="${addAction}" commandName="product" enctype="multipart/form-data" method="post">
 
 			<table border="1" cellpadding="10" cellspacing="10" align="center">
@@ -126,6 +130,7 @@ th {
 						<th>Product Description</th>
 						<th>Product Price</th>
 						<th>Supplier Id</th>
+						<th>Product Id</th>
 						<th>Product Id</th>
 						<th>Edit</th>
 						<th>Delete</th>

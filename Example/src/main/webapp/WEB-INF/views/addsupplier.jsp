@@ -38,6 +38,9 @@ th {
 </head>
 <body>
 	<h1>SUPPLIER MODULE</h1>
+	
+	<li style="float: right"><a href="perform_logout"
+							class="active"><i class="glyphicon glyphicon-log-out"> logout</i></a></li>
 	<c:url var="addAction" value="addsupplier"></c:url>
 
 	<form:form action="${addAction}" commandName="supplier"

@@ -1,5 +1,8 @@
 package com.niit.Backend.controller;
 
+
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,21 +20,24 @@ import com.niit.Backend.dao.CategoryDAO;
 import com.niit.Backend.dao.ProductDAO;
 import com.niit.Backend.dao.SupplierDAO;
 import com.niit.Backend.model.Product;
+import com.google.gson.Gson;
 import com.niit.Backend.controller.MultiPartController;
 
 
+@SuppressWarnings("unused")
 @Controller
 public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	@RequestMapping(value = { "product", "editproduct/product" , "editcategory/product","editsupplier/product"})
+	@RequestMapping(value = { "product"})
 	public String ProductPage(Model model) {
 		model.addAttribute("product", new Product());
 		model.addAttribute("productList", productDAO.list());

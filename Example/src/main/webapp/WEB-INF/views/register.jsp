@@ -18,12 +18,14 @@
 <body>
 <c:url var="addAction" value="adduser"></c:url>
 <form:form action="${addAction}" commandName="userDetails" method="post">
-<form:label path="name"><spring:message text="Name" /></form:label><form:input path="name" required="true" />
-<form:label path="userName"><spring:message text="UserName" /></form:label><form:input path="userName" required="true" />
-<form:label path="password"><spring:message text="Password" /></form:label><form:input path="password" required="true" />
-<form:label path="mobile"><spring:message text="Mobile Number" /></form:label><form:input path="mobile" required="true" />
-<form:label path="email"><spring:message text="Email" /></form:label><form:input path="email" required="true" />
-<input type="submit" value="signup"/>
+<div class="panel panel-primary">
+			<div class="panel-heading center">REGISTER</div>
+<div class="panel-body"><div class="form-group"><form:label path="name"><spring:message text="Name" /></form:label><form:input path="name" required="true" /></div></div>
+<div class="panel-body"><div class="form-group"><form:label path="userName"><spring:message text="UserName" /></form:label><form:input path="userName" required="true" /></div></div>
+<div class="panel-body"><div class="form-group"><form:label path="password"><spring:message text="Password" /></form:label><form:input path="password" required="true" /></div></div>
+<div class="panel-body"><div class="form-group"><form:label path="mobile"><spring:message text="Mobile Number" /></form:label><form:input path="mobile" required="true" /></div></div>
+<div class="panel-body"><div class="form-group"><form:label path="email"><spring:message text="Email" /></form:label><form:input path="email" required="true" /></div></div>
+<div class="panel-body"><div class="form-group"><input type="submit" value="signup"/>
 </form:form>
 </body>
 </html>
