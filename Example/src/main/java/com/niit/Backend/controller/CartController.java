@@ -102,7 +102,7 @@ public class CartController {
 	public String payment(HttpSession session)
 	{
 		cartDAO.pay((int)session.getAttribute("userId"));
-		return "redireck:/index";
+		return "redirect:/index";
 	}	
 	
 }

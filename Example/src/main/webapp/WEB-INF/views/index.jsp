@@ -14,6 +14,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="<c:url value="/resources/css/my.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/w3.css" />" rel="stylesheet">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
@@ -25,30 +26,18 @@
  -->
 <style>
 
-.carousel {
-    margin-bottom: 0;
-	padding: 20px 40px 20px 40px;
-	style=background-color:
-#808080
-}
-.carousel-indicators li {
-	background: #c0c0c0;
-}
-.carousel-indicators .active {
-background: #333333;
-}
-.carousel-inner>.item>img, .carousel-inner>.item>a>img {
-	width: 70%;
+.bg-danger{background: #cc9900;}
+ .carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 100%;
 	margin: auto;
 	height:400 ;
 }
-.bg-danger{background:  #c0c0c0;}
-.container-fluid{background: #000000;}
+
 </style>
 </head>
 <body >
-<div class="bg-danger" style=background-color:#666666>
-<nav class="navbar navbar-inverse">
+
+<nav class="bg-danger" >
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
@@ -79,8 +68,7 @@ background: #333333;
 					</c:when>
 
 					<c:otherwise>
-						<div class="collapse navbar-collapse" style="color: red">
-					<ul class="nav navbar-nav navbar-right">
+						
 
 						<li class="active"><a href="Register"> <span
 								class="glyphicon glyphicon-log-in"></span>  Register
@@ -89,8 +77,7 @@ background: #333333;
 								class="glyphicon glyphicon-user"></span>Sign up
 						</a></li>
 
-					</ul>
-				</div>
+					
 					</c:otherwise>
 				</c:choose>
 			</ul> 
@@ -101,35 +88,39 @@ background: #333333;
  <!--  ****************************************************** END SEARCH ***********************************************************
   -->
  <ul >
-							
+		<br><br>					
 		<c:choose>	
 		<c:when test="${!Administrator}">	
 			<!-- Category List -->
 			<c:if test="${!empty categoryList}">
-				
-				
-						<div class="panel-heading">
-					
+			
+				<div>
+						<ul 
+						class="w3-navbar w3-light-grey w3-round w3-small menu w3-card-4 "
+						Style="width: 70%; margin-left: 15%; margin-top: -2px;">
 						
 						<c:forEach items="${categoryList}" var="category">
-							<a  href="name" class="w3-hover-none"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> ${category.name}</a>
+							<a  href="name" class="w3-hover-none"><i class="glyphicon glyphicon-align-justify" aria-hidden="true"></i> ${category.name}</a>
 						</c:forEach>
-					
+					</ul>
 					
 				</div>
 			</c:if>	
 		</c:when>	
 	
 		<c:when test="${Administrator}">
-			<ul class="w3-navbar w3-light-grey w3-round w3-small menu w3-card-4 " 
-			Style="width: 70%; margin-left: 15%; margin-top:-2px;">
-				<li><a href="product"class="w3-hover-none"><i class="glyphicon glyphicon-list"
+		<div>
+			<ul
+						class="w3-navbar w3-light-grey w3-round w3-small menu w3-card-4 "
+						Style="width: 70%; margin-left: 15%; margin-top: -2px;">
+				<li><a href="product"class="w3-hover-none"><i class="glyphicon glyphicon-align-justify"
 					aria-hidden="true"></i> Products</a></li>
-				<li><a href="category" class="w3-hover-none"><i class="glyphicon glyphicon-list"
+				<li><a href="category" class="w3-hover-none"><i class="glyphicon glyphicon-align-justify"
 					aria-hidden="true"></i> Category</a></li>
-				<li><a href="supplier" class="w3-hover-none"><i class="glyphicon glyphicon-list"
+				<li><a href="supplier" class="w3-hover-none"><i class="glyphicon glyphicon-align-justify"
 					aria-hidden="true"></i> Supplier</a></li>
 			</ul>
+			</div>
 		</c:when>
 	</c:choose>		
 	
@@ -193,7 +184,8 @@ background: #333333;
 <c:choose>
 		<c:when test="${!Administrator}">
 			<c:if test="${empty HideOthers}">
-				<div>
+				<div class="container">
+			<br>
 			
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
@@ -203,26 +195,30 @@ background: #333333;
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 					<li data-target="#myCarousel" data-slide-to="3"></li>
 					<li data-target="#myCarousel" data-slide-to="4"></li>
+					<li data-target="#myCarousel" data-slide-to="5"></li>
 				</ol>
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/co/k.jpg" /> alt="one">
+						<img src=<c:url value="/resources/Images/co/1.jpg" /> alt="one">
 					</div>
 
 					<div class="item" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/co/kk.jpg" /> alt="two">
+						<img src=<c:url value="/resources/Images/co/2.jpg" /> alt="two">
 					</div>
 
 					<div class="item" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/co/kkk.jpg" /> alt="four">
+						<img src=<c:url value="/resources/Images/co/5.jpg" /> alt="four">
 					</div>
 					<div class="item" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/co/kkkk.jpg" /> alt="four">
+						<img src=<c:url value="/resources/Images/co/6.jpeg" /> alt="four">
 					</div>
 					<div class="item" style="width: 100%; height: 400">
-						<img src=<c:url value="/resources/Images/co/k.jpg" /> alt="four">
+						<img src=<c:url value="/resources/Images/co/7.jpeg" /> alt="four">
+					</div>
+					<div class="item" style="width: 100%; height: 400">
+						<img src=<c:url value="/resources/Images/co/12.jpeg" /> alt="four">
 					</div>
 
 				</div>
@@ -265,7 +261,7 @@ background: #333333;
 								<div class="col-xs-2 ">
 									<div class="thumbnail">
 										<img height="150px" width="150px" alt="${product.id}"
-											src="<c:url value="/resources/images/product/${product.id}.jpg"></c:url>">
+											src="<c:url value="/resources/Images/product/${product.id}.jpg"></c:url>">
 										<div class="caption">
 											<p>
 												${product.name}
@@ -300,7 +296,7 @@ background: #333333;
 
 		
 	
-	</div>
+	</nav>
 	
 </body>
 </html>

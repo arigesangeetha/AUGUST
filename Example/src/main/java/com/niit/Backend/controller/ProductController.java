@@ -44,7 +44,7 @@ public class ProductController {
 		model.addAttribute("categoryList",categoryDAO.list());
 		model.addAttribute("supplierList", supplierDAO.list());
 		model.addAttribute("ProductPageClicked","true");
-		return "addproduct";
+		return "index";
 	}
 
 	@RequestMapping(value = { "addproduct", "editproduct/addproduct" }, method = RequestMethod.POST)
@@ -64,7 +64,7 @@ public class ProductController {
 		model.addAttribute("categoryList",categoryDAO.list());
 		model.addAttribute("supplierList", supplierDAO.list());
 		model.addAttribute("ProductPageClicked", "true");
-		return "addproduct";
+		return "index";
 	}
 
 	@RequestMapping(value = { "removeproduct/{id}", "editproduct/removeproduct/{id}" })
