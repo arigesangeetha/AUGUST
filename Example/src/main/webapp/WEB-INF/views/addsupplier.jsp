@@ -13,10 +13,10 @@
 
 <style type="text/css">
 h1 {
-	color: white;
-	text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-	text-align: center;
-	font-size: 40px;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+     text-align: center;
+     font-size:40px;
 }
 table {
     border-collapse: collapse;
@@ -39,13 +39,13 @@ th {
 <body>
 	<h1>SUPPLIER MODULE</h1>
 	
-	<li style="float: right"><a href="perform_logout"
-							class="active"><i class="glyphicon glyphicon-log-out"> logout</i></a></li>
+	
 	<c:url var="addAction" value="addsupplier"></c:url>
 
 	<form:form action="${addAction}" commandName="supplier"
 		enctype="multipart/form-data" method="post">
-		<table border="1" cellpadding="10" cellspacing="10" align="center">
+		
+			<table class="panel panel-danger">
 			<thead>
 				<tr>
 					<td><form:label path="id">
@@ -119,23 +119,18 @@ th {
 
 						<td>
 							<form action="editsupplier/${supplier.id}" method="post">
-								<input type="submit" value="Edit">
+								<input type="submit" value="Edit" class="w3-btn w3-blue">
 							</form>
 						</td>
 						<td><form action="removesupplier/${supplier.id}">
-								<input type="submit" value="Delete">
+								<input type="submit" value="Delete" class="w3-btn w3-blue">
 							</form></td>
 					</tr>
 				</c:forEach>
 			</thead>
 		</table>
 	</c:if>
-	<img alt="Image"
-		src="<c:url value="/resources/Images/supplier/,1234.jpg" > </c:url>">
-<div style="width:100%; height:40;"></div>
-	<img
-		src="<%=request.getContextPath() +"/resources/Images/supplier/${supplier.id}.jpg" %>"
-		alt="${supplier.id}" />
+	
 	
 
 </body>

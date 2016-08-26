@@ -9,14 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Insert title here</title>
-
-
 <style type="text/css">
 h1 {
-	color: white;
-	text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-	text-align: center;
-	font-size: 40px;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+     text-align: center;
+     font-size:40px;
 }
 table {
     border-collapse: collapse;
@@ -35,6 +33,8 @@ th {
     color: white;
 }
 </style>
+
+
 </head>
 <body>
 
@@ -44,12 +44,10 @@ th {
 
 		<h1>PRODUCT MODULE</h1>
 		
-		<li style="float: right"><a href="perform_logout"
-							class="active"><i class="glyphicon glyphicon-log-out"> logout</i></a></li>
 		<form:form action="${addAction}" commandName="product" enctype="multipart/form-data" method="post">
 
-			<table border="1" cellpadding="10" cellspacing="10" align="center">
-			<thead>
+			<table class="panel panel-danger">
+			<thead >
 					<tr>
 						<td><form:label path="id">
 								<spring:message text="Id" />
@@ -121,7 +119,7 @@ th {
 		<br>
 
 		<c:if test="${!empty productList}">
-			<h1>ALL PRODUCTS</h1>
+			<h1>Product List</h1>
 			<table class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -131,7 +129,7 @@ th {
 						<th>Product Price</th>
 						<th>Supplier Id</th>
 						<th>Product Id</th>
-						<th>Product Id</th>
+						
 						<th>Edit</th>
 						<th>Delete</th>
 					</tr>

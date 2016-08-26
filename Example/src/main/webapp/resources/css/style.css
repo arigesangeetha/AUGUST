@@ -1,7 +1,19 @@
-.carousel-control.left, .carousel-control.right {
-    background-image: none;
-    background: none;
-    outline: none;
-    text-shadow: none;
-    
+<style type="text/css">
+
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>

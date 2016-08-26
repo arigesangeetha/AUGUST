@@ -53,6 +53,7 @@ public class ProductController {
 		productDAO.saveorUpdate(product);
 		MultipartFile file=product.getImage();
 		MultiPartController.upload(path, file,product.getId()+".jpg");
+		
 		return "redirect:/product";
 	}
 

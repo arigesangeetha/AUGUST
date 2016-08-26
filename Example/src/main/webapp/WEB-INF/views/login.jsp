@@ -33,8 +33,8 @@
 
 <form action="perform_login" method="post" >
  <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /><br>
-	 <input type="text" name="username"   placeholder="Enter email" required class="form-control input-lg" value="username" /><br><br>
-	 <input type="password" name="password"  class="form-control input-lg"   placeholder="Enter password" required="">
+	 <input type="text" name="username"   placeholder="Enter email" required ="" class="form-control input-lg" pattern=".{5,10}" title="please enter  username with min 5 character " value="username"/><br><br>
+	 <input type="password" name="password"  class="form-control input-lg"   placeholder="Enter password" required="" title="please enter valid password ">
 				
 
 
@@ -45,13 +45,11 @@
 				<button type="submit" value="submit" class="btn btn-lg btn-primary btn-block" >Submit</button>
 			</div>
 			 <div>
-            <a href="#">Create account</a> or <a href="#">reset password</a>
+            <a href="Register">Create account</a> 
           </div>
           
         </form>
-         <div class="form-links">
-          <a href="#">www.website.com</a>
-        </div>
+         
          </section>  
       </div>
       

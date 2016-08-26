@@ -17,7 +17,7 @@
 	<div class="row">
 	<div class="col-xs-2"></div>
 		<div class="col-xs-8">
-			<div class="panel panel-primary">
+			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="panel-title">
 						<div class="row">
@@ -65,7 +65,7 @@
 						<div class="col-xs-4">
 						<form action="editorder/${cart.id}">
 						<div class="col-xs-6"><input type="text" class="form-control input-sm" value="${cart.quantity}" name="quantity"></div>
-						<div class="col-xs-6"><button type="submit" class="btn btn-default btn-sm btn-block">Update cart
+						<div class="col-xs-6"><button type="submit" class="btn btn-default btn-sm btn-block">Update 
 						</button></div>
 						
 						</form>
@@ -84,14 +84,14 @@
 				<div class="panel-footer">
 					<div class="row text-center">
 						<div class="col-xs-3">
-							<a href="Welcomepage" class="btn btn-primary btn-sm btn-block">Continue Shopping</a></div>
+							<a href="Welcomepage" class="btn btn-info btn-sm btn-block">Continue Shopping</a></div>
 						<div class="col-xs-6">
 							<h4 class="text-right">Total : Rs ${CartPrice}</h4>
 						</div>
 						<form action="placeorder">
 						<div  class="col-xs-3">
-							<button type="submit" class="btn btn-success btn-block">
-								Checkout
+							<button type="submit" class="btn btn-info btn-block">
+								Payment
 							</button>
 						</div>
 						</form>
