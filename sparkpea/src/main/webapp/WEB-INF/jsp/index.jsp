@@ -6,11 +6,13 @@
 <div data-ng-app="myApp" data-ng-controller="formCtrl">
 <form name="formData" >
 <pre>
+genger   : <input type="text" data-ng-model="gender">
+Mobile    : <input type="number" data-ng-model="mobile">
 User name : <input type="text" data-ng-model="username">
 			
 Password  : <input type="text" data-ng-model="password"> 
 			
-Mobile    : <input type="number" data-ng-model="mobile">
+
 		
                <button type="submit">Submit</button>   <button type="reset">Reset</button>    
 		
