@@ -1,13 +1,15 @@
 package com.niit.dao;
 
-import com.niit.models.Users;
+import com.niit.models.User;
 
 public interface UsersDAO {
-
-	public void saveOrUpdate(Users users);
-
-	public void delete(Users users);
-
-	public Users get(int username);
-
+	
+	/*Used for creating or updating user*/
+	public void saveOrUpdate(User users);
+	
+	/*	Used for deleting user*/
+	public void delete(User user);
+	
+	/*Used to retrieve single user based on username*/
+	public User getUser(String username);
 }
